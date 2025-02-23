@@ -1,0 +1,175 @@
+.hidden {
+    display: none;
+}
+.block-loading {
+    z-index: 10;
+    pointer-events: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #ffffff;
+    opacity: 0.4;
+}
+.spinner-border {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+.change-font {
+    font-family: Arial !important;
+    color: black !important;
+    font-size: 12px;
+}
+.change-font2 {
+    font-style: italic;
+    font-size: 11px;
+}
+.change-font3 {
+    font-style: Bold;
+    font-size: 14px;
+    margin-top: 30px;
+    background-color: #ebebeb;
+}
+
+.page-header {
+    background-color: #a5ff87;
+    padding: 15px;
+    margin-bottom: 0px !important;
+    color: black;
+}
+
+.col-header {
+    display: inline-block;
+    vertical-align: top;
+}
+
+.col-header-right {
+    display: inline-block;
+    float: right;
+    vertical-align: top;
+}
+
+.col-header {
+    vertical-align: center;
+}
+
+.text-page-header {
+    margin: 0px;
+    font-size: 11px;
+}
+
+.change-color-nav {
+    background-color: #00913d !important;
+    color: blanchedalmond;
+}
+
+.custom-footer {
+    height: 30px;
+    background-color: #00913d !important;
+    color: blanchedalmond;
+}
+
+.add-extra-margin-bottom {
+    margin-bottom: 100px;
+    text-align: left !important;
+}
+
+@media screen {
+    #printSection {
+        display: none;
+    }
+}
+
+@media print {
+    body * {
+        visibility:hidden;
+    }
+    #printSection, #printSection * {
+        visibility:visible;
+    }
+    #printSection {
+        position:absolute;
+        left:0;
+        top:0;
+    }
+}
+
+@media only screen and (max-width: 845px) {
+    .page-header h4 {
+        font-size: 14px;
+    }
+}
+
+@media only screen and (max-width: 758px) {
+    .title-apps {
+        font-size: 20px;
+    }
+}
+
+@media only screen and (max-width: 668px) {
+    .page-header h4 {
+        font-size: 14px;
+    }
+
+    .img-page-header {
+        width: 80px;
+    }
+
+    .img-page-header-right {
+        width: 120px;
+    }
+
+    .text-page-header {
+        font-size: 9px;
+    }
+}
+
+@media only screen and (max-width: 758px) {
+    .title-apps {
+        font-size: 15px;
+    }
+}
+
+@media only screen and (max-width: 540px) {
+    .page-header h4 {
+        font-size: 12px;
+    }
+
+    .img-page-header {
+        width: 60px;
+    }
+
+    .img-page-header-right {
+        width: 90px;
+    }
+}
+
+@media only screen and (max-width: 465px) {
+    .page-header h4 {
+        font-size: 10px;
+    }
+
+    .text-page-header {
+        font-size: 7px;
+    }
+}
+
+@media only screen and (max-width: 410px) {
+    .img-page-header {
+        width: 50px;
+    }
+
+    .img-page-header-right {
+        width: 70px;
+    }
+
+    .page-header h4 {
+        font-size: 9px;
+    }
+
+    .text-page-header {
+        font-size: 6px;
+    }
+}
