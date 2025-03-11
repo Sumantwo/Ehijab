@@ -10,7 +10,7 @@
                 <div class="modal-header">
                     <div class="row" style="margin-bottom: 20px; width: 100%;">
                         <div class="col-md-3">
-                            <center><img src="<?=base_url('public/assets/img/general');?>/logo-satker.png" alt="" width="70"></center>
+                            <center><img src="<?=base_url('assets/img/general');?>/logo-satker.png" alt="" width="70"></center>
                         </div>
                         <div class="col-md-9">
                             <h4 style="margin-top: 0px !important; margin-bottom: 0px !important;"><center><?=$konfigurasi[4]['nilai_konfigurasi'];?></center></h4>

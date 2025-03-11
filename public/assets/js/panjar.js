@@ -79,25 +79,22 @@ $( document ).ready(function() {
     $('#kecamatan_p1').on('change', function (e) {
         var kecamatan_p1 = $("option:selected", this);
         $.ajax({
-            type: "post",
+            type : "post",
             data: {
                 id_kec: kecamatan_p1.val()
             },
-            dataType: 'json',
+            dataType:'json',
             url: 'panjar/kelurahan',
-            cache: false,
-            success: function(response) {
+            cache : false,
+            success : function(response) {
                 setSelectKelP1(response);
             },
-            error: function(xhr, status, error) {
-                console.error("AJAX Error:", status, error);
-                console.error("Response Text:", xhr.responseText);
-                alert("Terjadi kesalahan: " + status + " - " + error + "\n\nDetail: " + xhr.responseText);
+            error: function() {
+                alert("error");
             }
         });        
         return false;
     });
-    
 
     $('#kecamatan_t1').on('change', function (e) {
         var kecamatan_t1 = $("option:selected", this);
@@ -452,87 +449,7 @@ $( document ).ready(function() {
 
     // START hitung panjar ====================================================
 
-    $('#btn_hitung_panjar').on('click', function() {
-        var menu = 'talak';
-        
-        // get value menu
-        $('#myTab .nav-item').each(function(index, value) {
-            if($('#myTab .nav-item').eq(index).find('.active').length == 1) {
-                menu = $('#myTab .nav-item').eq(index).find('.active').attr('aria-controls');
-            }
-        });
-        
-        // if menu talak
-        if(menu == 'talak') {
-            if(!$('#kelurahan_p1').val() && ($('#biaya_p1').val() == '' || $('#biaya_p1').val() == 0)) {
-                if($('#card_error1').hasClass('hidden')) {
-                    $('#card_error1').removeClass('hidden');
-                    console.log($('#kelurahan_p1').val());
-                    console.log($('#biaya_p1').val());
-                }
-                $('#card_message_error1').empty();
-                $('#card_message_error1').append($('<ul>').append($('<li>').text('Lokasi pemohon masih belum diisi!')));
-            } else if(!$('#kelurahan_t1').val() && ($('#biaya_t1').val() == '' || $('#biaya_t1').val() == 0)) {
-                if($('#card_error1').hasClass('hidden')) {
-                    $('#card_error1').removeClass('hidden');
-                }
-                $('#card_message_error1').empty();
-                $('#card_message_error1').append($('<ul>').append($('<li>').text('Lokasi termohon masih belum diisi!')));
-            } else {
-                if(!($('#biaya_p1').val() == '' || $('#biaya_p1').val() == 0)) {
-                    $('#hitung_lokasi_p1').text('Luar ' + $('#nama_kabupaten_konfigurasi').val());
-                    $('#hitung_biaya_p1').text('Rp.' + $('#biaya_p1').val());
-                } else if(!($('#biaya_t1').val() == '' || $('#biaya_t1').val() == 0)) {
-                    $('#hitung_lokasi_t1').text('Luar ' + $('#nama_kabupaten_konfigurasi').val());
-                    $('#hitung_lokasi_t12').text('Luar ' + $('#nama_kabupaten_konfigurasi').val());
-                    $('#hitung_biaya_t1').text('Rp.' + $('#biaya_t1').val());
-                    $('#hitung_biaya_t12').text('Rp.' + $('#biaya_t1').val());
-                }
-                if(!$('#card_error1').hasClass('hidden')) {
-                    $('#card_error1').addClass('hidden');
-                }
-                hitungPanjar1();
-                $('#hitungPanjarModal1').modal();
-            
-            }
-
-        } else if(menu == 'gugat') {
-            if(!$('#kelurahan_p2').val() && ($('#biaya_p2').val() == '' || $('#biaya_p2').val() == 0)) {
-                if($('#card_error2').hasClass('hidden')) {
-                    $('#card_error2').removeClass('hidden');
-                }
-                $('#card_message_error2').empty();
-                $('#card_message_error2').append($('<ul>').append($('<li>').text('Lokasi pemohon masih belum diisi!')));
-            } else if(!$('#kelurahan_t2').val() && ($('#biaya_t2').val() == '' || $('#biaya_t2').val() == 0)) {
-                if($('#card_error2').hasClass('hidden')) {
-                    $('#card_error2').removeClass('hidden');
-                }
-                $('#card_message_error2').empty();
-                $('#card_message_error2').append($('<ul>').append($('<li>').text('Lokasi termohon masih belum diisi!')));
-            } else {
-                if(!($('#biaya_p2').val() == '' || $('#biaya_p2').val() == 0)) {
-                    $('#hitung_lokasi_p2').text('Luar ' + $('#nama_kabupaten_konfigurasi').val());
-                    $('#hitung_biaya_p2').text('Rp.' + $('#biaya_p2').val());
-                } else if(!($('#biaya_t2').val() == '' || $('#biaya_t2').val() == 0)) {
-                    $('#hitung_lokasi_t2').text('Luar ' + $('#nama_kabupaten_konfigurasi').val());
-                    $('#hitung_lokasi_t22').text('Luar ' + $('#nama_kabupaten_konfigurasi').val());
-                    $('#hitung_biaya_t2').text('Rp.' + $('#biaya_t2').val());
-                    $('#hitung_biaya_t22').text('Rp.' + $('#biaya_t2').val());
-                }
-                if(!$('#card_error2').hasClass('hidden')) {
-                    $('#card_error2').addClass('hidden');
-                }
-                hitungPanjar2();
-                $('#hitungPanjarModal2').modal();
-            }
-        } else {
-            calculatePanjarPermohonan(function() {
-                createViewPemohon(function() {
-                    showTheModalPermohonan();
-                })
-            });
-        }
-    });
+     
 
     $('#btn_print_panjar1').on('click', function() {
         printElement(document.getElementById("printThis1"));
