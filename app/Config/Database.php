@@ -26,10 +26,10 @@ class Database extends Config
      */
     public array $default = [
         'DSN'          => '',
-        'hostname'     => getenv('DATABASE_HOST'),
-        'username'     => getenv('DATABASE_USER'),
-        'password'     => getenv('DATABASE_PASS'),
-        'database'     => getenv('DATABASE_NAME'),
+        'hostname'     => 'localhost',
+        'username'     => 'root',
+        'password'     => '',
+        'database'     => 'pakedir1_sistem_panjar',
         'DBDriver'     => 'MySQLi',
         'DBPrefix'     => '',
         'pConnect'     => false,
