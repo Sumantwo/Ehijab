@@ -26,14 +26,14 @@ class Database extends Config
      */
     public array $default = [
         'DSN'          => '',
-        'hostname'     => 'localhost',
-        'username'     => 'root',
-        'password'     => '',
-        'database'     => 'pakedir1_sistem_panjar',
+        'hostname'     => getenv('DATABASE_HOST'),
+        'username'     => getenv('DATABASE_USER'),
+        'password'     => getenv('DATABASE_PASS'),
+        'database'     => getenv('DATABASE_NAME'),
         'DBDriver'     => 'MySQLi',
         'DBPrefix'     => '',
         'pConnect'     => false,
-        'DBDebug'      => true,
+        'DBDebug'      => (ENVIRONMENT !== 'production'),
         'charset'      => 'utf8mb4',
         'DBCollat'     => 'utf8mb4_general_ci',
         'swapPre'      => '',
@@ -41,7 +41,7 @@ class Database extends Config
         'compress'     => false,
         'strictOn'     => false,
         'failover'     => [],
-        'port'         => 3306,
+        'port'         => 3306, // Pastikan port sesuai dengan database di Railway
         'numberNative' => false,
         'foundRows'    => false,
         'dateFormat'   => [
@@ -50,7 +50,7 @@ class Database extends Config
             'time'     => 'H:i:s',
         ],
     ];
-
+    
     //    /**
     //     * Sample database connection for SQLite3.
     //     *
